@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Pattern Analyzer | Hotel Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <div>
+                    <h1>Log Pattern Analyzer</h1>
+                    <p class="subtitle">Online Hotel Booking System — Performance Diagnostics Tool</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <label for="logInput">Paste your log file content below:</label>
+                <textarea id="logInput" placeholder="INFO   read_physical_table: message 1   This is test mail
+INFO   read_physical_data: message 2    Lets plan outdoor trip
+INFO   read_physical_memory: message 3 : Goa is the best"></textarea>
+                <div class="actions">
+                    <button id="analyzeBtn" onclick="analyzeLog()">Analyze Patterns</button>
+                    <button id="clearBtn" class="secondary" onclick="clearAll()">Clear</button>
+                    <button id="sampleBtn" class="secondary" onclick="loadSample()">Load Sample</button>
+                </div>
+            </section>
+
+            <section id="resultSection" class="result-section hidden">
+                <div class="result-header">
+                    <h2>Analysis Results</h2>
+                    <div class="stats">
+                        <span id="totalWords" class="stat-badge">0 total words</span>
+                        <span id="uniqueWords" class="stat-badge">0 unique patterns</span>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table id="resultTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Pattern (Word)</th>
+                                <th>Count</th>
+                                <th>Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Hotel Booking System — Log Pattern Analyzer &copy; 2026 | Built with CI/CD via GitHub Actions</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
